@@ -1,0 +1,129 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: gray;
+  display: grid;
+  align-content: center;
+  height: 100vh;
+}
+.main-area {
+  display: grid;
+  height: 70vh;
+  width: 600px;
+  margin-inline: auto;
+  place-content: center;
+  gap: 0.3em;
+  background: white;
+}
+.head {
+  width: 2.3em;
+  background: #000;
+  aspect-ratio: 1;
+  transform: rotate(32deg) translate(47px, -10px);
+  animation: head 2s 2s infinite ease alternate-reverse;
+}
+.chest {
+  width: 0;
+  border: 4em solid transparent;
+  border-top: 0;
+  border-bottom: 4em solid black;
+  margin-block: -25px;
+  transform: translateY(45px);
+  animation: chest 2s 2s infinite ease alternate-reverse;
+}
+.package {
+  width: 0;
+  border: 2em solid transparent;
+  border-top: 2em solid rgb(255, 0, 0);
+  margin-block: -51px;
+  transform: translate(124px, 85px);
+  animation: package 4.5s 2s infinite ease forwards;
+}
+.hand {
+  width: 0;
+  border: 2em solid transparent;
+  border-top: 2em solid black;
+  margin-block: -33px;
+  transform: translate(93px, 95px);
+  animation: hand 2s 2s infinite ease alternate-reverse;
+}
+.belly {
+  width: 0;
+  border: 4em solid transparent;
+  border-bottom: 4em solid black;
+  margin-block: -31px;
+  transform: rotateY(185deg) rotateZ(405deg) rotateX(0deg)
+    translate(63px, -29px);
+  animation: belly 2s 2s infinite ease alternate-reverse;
+}
+.leg {
+  width: 2.3em;
+  height: 4em;
+  transform: skewY(-45deg) translate(17px, 153px);
+  background: #000;
+  margin-block: -88px;
+  animation: leg 2s 2s infinite ease alternate-reverse;
+}
+.foot {
+  width: 0;
+  border: 2.2em solid transparent;
+  border-bottom: 2.2em solid black;
+  transform: translate(17px, 63px);
+  animation: foot 2s 2s infinite ease alternate-reverse;
+}
+@keyframes head {
+  to {
+    transform: rotate(-229deg) translate(40px, 15px);
+  }
+}
+@keyframes belly {
+  to {
+    transform: rotateY(0deg) rotateZ(405deg) translate(13px, 25px);
+  }
+}
+@keyframes hand {
+  to {
+    transform: translate(-109px, 97px);
+  }
+}
+@keyframes chest {
+  to {
+    transform: translate(-75px, 46px);
+  }
+}
+@keyframes leg {
+  to {
+    transform: skewY(45deg) translate(9px, 139px);
+  }
+}
+@keyframes package {
+  30% {
+    transform: translate(-142px, 87px);
+  }
+  37% {
+    transform: translate(-142px, 87px);
+  }
+  45% {
+    transform: translate(-142px, 87px);
+  }
+  50% {
+    transform: translate(-350px, 87px);
+  }
+  60% {
+    transform: translate(300px, 87px);
+  }
+  70% {
+    transform: translate(300px, 87px);
+  }
+  100% {
+    transform: translate(124px, 87px);
+  }
+}
+@keyframes foot {
+  to {
+    transform: translate(-28px, 69px);
+  }
+}
