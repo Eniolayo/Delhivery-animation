@@ -17,13 +17,14 @@ body {
   place-content: center;
   gap: 0.3em;
   background: white;
+  overflow: hidden;
 }
 .head {
   width: 2.3em;
   background: #000;
   aspect-ratio: 1;
   transform: rotate(32deg) translate(47px, -10px);
-  animation: head 2s 2s infinite ease alternate-reverse;
+  animation: head 2s 2s linear forwards, head2 2s 7s linear forwards;
 }
 .chest {
   width: 0;
@@ -32,7 +33,7 @@ body {
   border-bottom: 4em solid black;
   margin-block: -25px;
   transform: translateY(45px);
-  animation: chest 2s 2s infinite ease alternate-reverse;
+  animation: chest 2s 2s linear forwards, chest2 2s 7s linear forwards;
 }
 .package {
   width: 0;
@@ -40,7 +41,8 @@ body {
   border-top: 2em solid rgb(255, 0, 0);
   margin-block: -51px;
   transform: translate(124px, 85px);
-  animation: package 4.5s 2s infinite ease forwards;
+  animation: package 2s 2s linear forwards, package2 2s 4.5s linear forwards,
+    package3 2s 7.5s linear forwards;
 }
 .hand {
   width: 0;
@@ -48,7 +50,7 @@ body {
   border-top: 2em solid black;
   margin-block: -33px;
   transform: translate(93px, 95px);
-  animation: hand 2s 2s infinite ease alternate-reverse;
+  animation: hand 2s 2s linear forwards, hand2 2s 7s linear forwards;
 }
 .belly {
   width: 0;
@@ -57,7 +59,7 @@ body {
   margin-block: -31px;
   transform: rotateY(185deg) rotateZ(405deg) rotateX(0deg)
     translate(63px, -29px);
-  animation: belly 2s 2s infinite ease alternate-reverse;
+  animation: belly 2s 2s linear forwards, belly2 2s 7s linear forwards;
 }
 .leg {
   width: 2.3em;
@@ -65,18 +67,23 @@ body {
   transform: skewY(-45deg) translate(17px, 153px);
   background: #000;
   margin-block: -88px;
-  animation: leg 2s 2s infinite ease alternate-reverse;
+  animation: leg 2s 2s linear forwards, leg2 2s 7s linear forwards;
 }
 .foot {
   width: 0;
   border: 2.2em solid transparent;
   border-bottom: 2.2em solid black;
   transform: translate(17px, 63px);
-  animation: foot 2s 2s infinite ease alternate-reverse;
+  animation: foot 2s 2s linear forwards, foot2 2s 7s linear forwards;
 }
 @keyframes head {
   to {
     transform: rotate(-229deg) translate(40px, 15px);
+  }
+}
+@keyframes head2 {
+  to {
+    transform: rotate(32deg) translate(47px, -10px);
   }
 }
 @keyframes belly {
@@ -84,9 +91,20 @@ body {
     transform: rotateY(0deg) rotateZ(405deg) translate(13px, 25px);
   }
 }
+@keyframes belly2 {
+  to {
+    transform: rotateY(185deg) rotateZ(405deg) rotateX(0deg)
+      translate(63px, -29px);
+  }
+}
 @keyframes hand {
   to {
     transform: translate(-109px, 97px);
+  }
+}
+@keyframes hand2 {
+  to {
+    transform: translate(93px, 95px);
   }
 }
 @keyframes chest {
@@ -94,36 +112,50 @@ body {
     transform: translate(-75px, 46px);
   }
 }
+@keyframes chest2 {
+  to {
+    transform: translateY(45px);
+  }
+}
 @keyframes leg {
   to {
     transform: skewY(45deg) translate(9px, 139px);
   }
 }
-@keyframes package {
-  30% {
-    transform: translate(-142px, 87px);
-  }
-  37% {
-    transform: translate(-142px, 87px);
-  }
-  45% {
-    transform: translate(-142px, 87px);
-  }
-  50% {
-    transform: translate(-350px, 87px);
-  }
-  60% {
-    transform: translate(300px, 87px);
-  }
-  70% {
-    transform: translate(300px, 87px);
-  }
-  100% {
-    transform: translate(124px, 87px);
+@keyframes leg2 {
+  to {
+    transform: skewY(-45deg) translate(17px, 153px);
   }
 }
+@keyframes package {
+  100% {
+    transform: translate(-142px, 87px);
+  }
+}
+@keyframes package2 {
+  100% {
+    transform: translate(-302px, 87px);
+  }
+}
+
+@keyframes package3 {
+  0% {
+    transform: translate(369px, 87px);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(124px, 85px);
+  }
+}
+
 @keyframes foot {
   to {
     transform: translate(-28px, 69px);
+  }
+}
+@keyframes foot2 {
+  to {
+    transform: translate(17px, 63px);
   }
 }
