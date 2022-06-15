@@ -3,6 +3,14 @@
   padding: 0;
   box-sizing: border-box;
 }
+:root {
+  --initial-time: 900ms;
+  --initial-delay: 2s;
+  --bounce-delay: 7s;
+  --family-clr: rgb(255, 0, 0);
+}
+/* animation:var(--initial-time) var(--initial-delay) var(--bounce-delay) var(--family-clr); */
+
 body {
   background: gray;
   display: grid;
@@ -18,13 +26,30 @@ body {
   gap: 0.3em;
   background: white;
   overflow: hidden;
+  position: relative;
+}
+.firstBox,
+.secondBox {
+  width: 40px;
+  aspect-ratio: 1/1;
+  background: var(--family-clr);
+  position: absolute;
+}
+.firstBox{
+  right: 10px;
+  top: 10px;
+}
+.secondBox{
+  bottom: 10px;
+  left: 10px;
 }
 .head {
   width: 2.3em;
   background: #000;
   aspect-ratio: 1;
   transform: rotate(32deg) translate(47px, -10px);
-  animation: head 2s 2s linear forwards, head2 2s 7s linear forwards;
+  animation: head var(--initial-time) var(--initial-delay) linear forwards,
+    head2 var(--initial-time) var(--bounce-delay) linear forwards;
 }
 .chest {
   width: 0;
@@ -33,16 +58,18 @@ body {
   border-bottom: 4em solid black;
   margin-block: -25px;
   transform: translateY(45px);
-  animation: chest 2s 2s linear forwards, chest2 2s 7s linear forwards;
+  animation: chest var(--initial-time) var(--initial-delay) linear forwards,
+    chest2 var(--initial-time) var(--bounce-delay) linear forwards;
 }
 .package {
   width: 0;
   border: 2em solid transparent;
-  border-top: 2em solid rgb(255, 0, 0);
+  border-top: 2em solid var(--family-clr);
   margin-block: -51px;
   transform: translate(124px, 85px);
-  animation: package 2s 2s linear forwards, package2 2s 4.5s linear forwards,
-    package3 2s 7.5s linear forwards;
+  animation: package var(--initial-time) var(--initial-delay) linear forwards,
+    package2 var(--initial-time) 4.5s linear forwards,
+    package3 var(--initial-time) 7.5s linear forwards;
 }
 .hand {
   width: 0;
@@ -50,7 +77,8 @@ body {
   border-top: 2em solid black;
   margin-block: -33px;
   transform: translate(93px, 95px);
-  animation: hand 2s 2s linear forwards, hand2 2s 7s linear forwards;
+  animation: hand var(--initial-time) var(--initial-delay) linear forwards,
+    hand2 var(--initial-time) var(--bounce-delay) linear forwards;
 }
 .belly {
   width: 0;
@@ -59,7 +87,8 @@ body {
   margin-block: -31px;
   transform: rotateY(185deg) rotateZ(405deg) rotateX(0deg)
     translate(63px, -29px);
-  animation: belly 2s 2s linear forwards, belly2 2s 7s linear forwards;
+  animation: belly var(--initial-time) var(--initial-delay) linear forwards,
+    belly2 var(--initial-time) var(--bounce-delay) linear forwards;
 }
 .leg {
   width: 2.3em;
@@ -67,14 +96,16 @@ body {
   transform: skewY(-45deg) translate(17px, 153px);
   background: #000;
   margin-block: -88px;
-  animation: leg 2s 2s linear forwards, leg2 2s 7s linear forwards;
+  animation: leg var(--initial-time) var(--initial-delay) linear forwards,
+    leg2 var(--initial-time) var(--bounce-delay) linear forwards;
 }
 .foot {
   width: 0;
   border: 2.2em solid transparent;
   border-bottom: 2.2em solid black;
   transform: translate(17px, 63px);
-  animation: foot 2s 2s linear forwards, foot2 2s 7s linear forwards;
+  animation: foot var(--initial-time) var(--initial-delay) linear forwards,
+    foot2 var(--initial-time) var(--bounce-delay) linear forwards;
 }
 @keyframes head {
   to {
